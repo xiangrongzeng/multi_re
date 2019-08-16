@@ -16,11 +16,16 @@ To handle the overlapping problem, we propose to use sequence to sequence model 
 This work has been published in ACL2018: Extracting Relational Facts by an End-to-End Neural Model with Copy Mechanism.
 We denote this work as copy_re.
 
+<img src="https://github.com/xiangrongzeng/multi_re/blob/master/img/copy_re.jpg" width="400" alt="copy_re"/>
+
+
 ### Handle the extraction order problem
 
 To handle the extraction order problem (and hanle the overlapping problem at the same time), we apply reinforcement learning on the above sequence to sequence model to learn a good extraction order automatically.
 This work has been accepted by EMNLP2019: Learning the Extraction Order of Multiple Relational Facts in a Sentence with Reinforcement Learning.
 We denote this work as order_copy_re.
+
+<img src="https://github.com/xiangrongzeng/multi_re/blob/master/img/order_copy_re.jpg" width="400" alt="order_copy_re"/>
 
 ## Code and Data
 
