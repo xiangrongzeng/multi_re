@@ -3,7 +3,7 @@
 ## Background
 ### What is relational fact?
 
-A relational fact includes a head entity, a tail entity and an relation. A relational fact is also called triplet. For example, <New York, located_in, America> is a relational fact and "New York" is the head entity and "America" is the tail entity. "located_in" is the relation between these two entities. The head entity is also called the first entity ($$e_1$$) while the tail entity called the second entity ($$e_2$$). Mostly, the entity pair $$(e1, e2)$$ is different from $$(e2, e1)$$.
+A relational fact includes a head entity, a tail entity and an relation. A relational fact is also called triplet. For example, <New York, located_in, America> is a relational fact and "New York" is the head entity and "America" is the tail entity. "located_in" is the relation between these two entities. The head entity is also called the first entity (e1) while the tail entity called the second entity (e2). Mostly, the entity pair (e1, e2) is different from (e2, e1).
 
 ### What is relation extraction?
 
@@ -14,13 +14,13 @@ Most relation extraction works assume that one entity may participate in only on
 
 To handle the overlapping problem, we propose to use sequence to sequence model with copy mechanism to generate triplets directly.
 This work has been published in ACL2018: Extracting Relational Facts by an End-to-End Neural Model with Copy Mechanism.
-We denote this work as copy_re
+We denote this work as copy_re.
 
 ### Handle the extraction order problem
 
 To handle the extraction order problem (and hanle the overlapping problem at the same time), we apply reinforcement learning on the above sequence to sequence model to learn a good extraction order automatically.
 This work has been accepted by EMNLP2019: Learning the Extraction Order of Multiple Relational Facts in a Sentence with Reinforcement Learning.
-We denote this work as order_copy_re
+We denote this work as order_copy_re.
 
 ## Code and Data
 
@@ -61,8 +61,11 @@ python main.py -a train -d nyt -l nll -m onedecoder -b 100 -tn 5 -lr 0.001 -en 2
 ```
 
 To valid or test the models, change the value of parameter **-a** to *valid* or *test*. 
-The code will make a folder with the name contains most of parameter values. The model in different epochs will be stored in this folder. For example, the above settings will lead to a folder *nyt-ONE-NLL-5-0.001-100-FixedUnSorted-gru-1000-1000*. Therefore, we can try many different settings without inference each other.
-The parameter **-n** means the name of experiment. We create a folder with its value, all settings with the same experiment name will be placed in the same folder. Therefore, you can do exploratory experiments in **-n tmp** and run your best settings in **-n mybest**, for example.
+
+The code will make a folder with the name contains most of parameter values. The model in different epochs will be stored in this folder. For example, the above settings will lead to a folder *nyt-ONE-NLL-5-0.001-100-FixedUnSorted-gru-1000-1000*. In this way, we can try many different settings without inference each other.
+
+The parameter **-n** means the name of experiment. We create a folder with this name. All settings with the same experiment name will be placed in the same folder. Therefore, you can do exploratory experiments in **-n tmp** and run your best settings in **-n mybest**.
+
 In a word, the directory will be looks like this:
 ```
 --exp_name
@@ -87,5 +90,6 @@ python main.py -a train -d nyt -l rl -m onedecoder -b 100 -tn 5 -lr 0.0005 -en 5
 ```
 
 To valid or test the models, change the value of parameter **-a** to *valid* or *test*. The parameter **-a** is no longer necessary during valid or test.
-Re
+
+Remember that the value of **-d, -m, -hn, -n, -cell**  must be the same with the initialized model.
  
