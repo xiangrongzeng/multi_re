@@ -1,7 +1,5 @@
 # Multiple Relational Facts Extraction
 
-*The Code Will be Released Soon*
-
 ## Background
 ### What is relational fact?
 
