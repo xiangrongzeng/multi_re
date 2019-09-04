@@ -1,5 +1,7 @@
 # Multiple Relational Facts Extraction
 
+*The Code Will be Released Soon*
+
 ## Background
 ### What is relational fact?
 
@@ -13,7 +15,7 @@ Most relation extraction works assume that one entity may participate in only on
 ### Handle the overlapping problem
 
 To handle the overlapping problem, we propose to use sequence to sequence model with copy mechanism to generate triplets directly.
-This work has been published in ACL2018: Extracting Relational Facts by an End-to-End Neural Model with Copy Mechanism.
+This work has been published in ACL2018: [Extracting Relational Facts by an End-to-End Neural Model with Copy Mechanism](https://github.com/xiangrongzeng/multi_re/blob/master/paper/Extracting-relational-facts-by-an-end-to-end-neural-model-with-copy-mechanism.pdf).
 We denote this work as copy_re.
 
 <img src="https://github.com/xiangrongzeng/multi_re/blob/master/img/copy_re.jpg" width="400" alt="copy_re"/>
@@ -22,7 +24,7 @@ We denote this work as copy_re.
 ### Handle the extraction order problem
 
 To handle the extraction order problem (and hanle the overlapping problem at the same time), we apply reinforcement learning on the above sequence to sequence model to learn a good extraction order automatically.
-This work has been accepted by EMNLP2019: Learning the Extraction Order of Multiple Relational Facts in a Sentence with Reinforcement Learning.
+This work has been accepted by EMNLP2019: [Learning the Extraction Order of Multiple Relational Facts in a Sentence with Reinforcement Learning](https://github.com/xiangrongzeng/multi_re/blob/master/paper/Learning-the-Extraction-Order-of-Multiple-Relational-Facts-in-a-Sentence-with-Reinforcement-Learning.pdf).
 We denote this work as order_copy_re.
 
 <img src="https://github.com/xiangrongzeng/multi_re/blob/master/img/order_copy_re.jpg" width="400" alt="order_copy_re"/>
@@ -47,10 +49,6 @@ NYT:
  - [dataset](https://drive.google.com/open?id=10f24s9gM7NdyO3z5OqQxJgYud4NnCJg3)
  - [pre-trained word embedding](https://drive.google.com/open?id=1yVjN-0lZid6YJmsX5g8x_YKiCfnRy8IL)
 
- ### Environment
- - python2.7
- - [requirements.txt](https://github.com/xiangrongzeng/copy_re/blob/master/requirements.txt)
-
 ### Environment
 
 - python2.7
@@ -71,7 +69,7 @@ The code will make a folder with the name contains most of parameter values. The
 
 The parameter **-n** means the name of experiment. We create a folder with this name. All settings with the same experiment name will be placed in the same folder. Therefore, you can do exploratory experiments in **-n tmp** and run your best settings in **-n mybest**.
 
-In a word, the directory will be looks like this:
+In a word, the directory will look like this:
 ```
 --exp_name
 ----settings_name
@@ -94,7 +92,7 @@ Before we apply RL training, we need to pre-train the model with NLL loss first.
 python main.py -a train -d nyt -l rl -m onedecoder -b 100 -tn 5 -lr 0.0005 -en 50 -sf 5 -hn 1000 -n tmp -g 0 -cell gru -re 5 -rip 'nyt-ONE-NLL-5-0.001-100-FixedUnSorted-gru-1000-1000'
 ```
 
-To valid or test the models, change the value of parameter **-a** to *valid* or *test*. The parameter **-a** is no longer necessary during valid or test.
+To valid or test the models, change the value of parameter **-a** to *valid* or *test*. The parameter **-rip** is no longer necessary during valid or test.
 
 Remember that the value of **-d, -m, -hn, -n, -cell**  must be the same with the initialized model.
  
