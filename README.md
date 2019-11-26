@@ -1,5 +1,14 @@
 # Multiple Relational Facts Extraction
 
+
+## Update: recent works in multiple relational facts extraction
+
+Please let me know if I missed something :)
+ - [GraphRel: Modeling Text as Relational Graphs for Joint Entity and Relation Extraction](https://www.aclweb.org/anthology/P19-1136/) ACL2019
+ - [Effective Modeling of Encoder-Decoder Architecture for Joint Entity and Relation Extraction](https://128.84.21.199/abs/1911.09886) AAAI 2020 
+ - [CopyMTL: Copy Mechanism for Joint Extraction of Entities and Relations with Multi-Task Learning] AAAI 2020
+
+
 ## Background
 ### What is relational fact?
 
